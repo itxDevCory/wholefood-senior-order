@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - Whole Foods Easy Order</title>
+    <meta name="description" content="Review your shopping cart">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">🛒</span>
+                <span>Whole Foods Easy Order</span>
+            </a>
+            <nav class="nav">
+                <a href="index.html" class="nav-btn">
+                    🏠 Home
+                </a>
+                <a href="favorites.html" class="nav-btn">
+                    ⭐ Favorites
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        <h1 class="section-title">Your Shopping Cart</h1>
+
+        <div style="display: grid; grid-template-columns: 1fr 400px; gap: 32px; align-items: start;">
+            <!-- Cart Items -->
+            <div>
+                <div id="empty-cart" class="empty-state" style="display: none;">
+                    <p>Your cart is empty</p>
+                    <p class="empty-state-subtitle">Add items to your cart to get started</p>
+                    <a href="index.html" class="btn btn-primary btn-large">
+                        Start Shopping
+                    </a>
+                </div>
+
+                <div id="cart-items" class="cart-items">
+                    <!-- Cart items will be loaded here -->
+                </div>
+            </div>
+
+            <!-- Cart Summary -->
+            <div id="cart-summary" class="cart-summary">
+                <h2>Order Summary</h2>
+                
+                <div class="summary-row">
+                    <span>Subtotal:</span>
+                    <span id="subtotal">$0.00</span>
+                </div>
+                
+                <div class="summary-row">
+                    <span>Tax (8%):</span>
+                    <span id="tax">$0.00</span>
+                </div>
+                
+                <div class="summary-row">
+                    <span>Delivery Fee:</span>
+                    <span id="delivery-fee">$9.95</span>
+                </div>
+                
+                <div class="summary-row">
+                    <span>Total:</span>
+                    <span id="total">$0.00</span>
+                </div>
+
+                <p style="font-size: 16px; color: #666; margin: 16px 0; text-align: center;">
+                    Free delivery on orders over $35
+                </p>
+
+                <a href="checkout.html" class="btn btn-primary btn-large" style="width: 100%; margin-top: 24px;">
+                    Proceed to Checkout
+                </a>
+
+                <button onclick="if(confirm('Clear all items from cart?')) cart.clear();" class="btn btn-secondary" style="width: 100%; margin-top: 16px;">
+                    Clear Cart
+                </button>
+            </div>
+        </div>
+
+        <!-- Continue Shopping -->
+        <div style="text-align: center; margin-top: 48px;">
+            <a href="index.html" class="btn btn-secondary btn-large">
+                ← Continue Shopping
+            </a>
+        </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="js/wholefoodsAPI.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/preferences.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+{
+  "user": {
+    "name": "Dr. Thomas Peter Bridge",
+    "email": "peterbridge140@gmail.com",
+    "phone": "973-545-6899",
+    "deliveryAddress": {
+      "street": "1414 S Penn Square",
+      "apartment": "Apt 36g",
+      "city": "Philadelphia",
+      "state": "PA",
+      "zipCode": "19102"
+    },
+    "storeLocation": {
+      "name": "Whole Foods Philly Center City",
+      "address": "2101 Pennsylvania Ave",
+      "city": "Philadelphia",
+      "state": "PA",
+      "zipCode": "19130",
+      "phone": "215-557-0015"
+    },
+    "preferences": {
+      "dietaryRestrictions": [],
+      "favoriteItems": [],
+      "preferredBrands": [],
+      "substitutionRules": {}
+    },
+    "orderHistory": []
+  }
+}

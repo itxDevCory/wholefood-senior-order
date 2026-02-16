@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Whole Foods Easy Order</title>
+    <meta name="description" content="Complete your order">
+    <link rel="stylesheet" href="css/main.css">
+    <style>
+        .checkout-container {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 32px;
+            align-items: start;
+        }
+
+        .checkout-form {
+            background: white;
+            border: 2px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-lg);
+        }
+
+        .form-section {
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .form-section h3 {
+            font-size: var(--font-large);
+            margin-bottom: var(--spacing-md);
+            color: var(--primary-color);
+        }
+
+        .form-group {
+            margin-bottom: var(--spacing-md);
+        }
+
+        .form-group label {
+            display: block;
+            font-size: var(--font-base);
+            font-weight: 600;
+            margin-bottom: var(--spacing-xs);
+            color: var(--text-primary);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: var(--spacing-md);
+            font-size: var(--font-large);
+            border: 2px solid var(--border);
+            border-radius: var(--radius-md);
+            font-family: inherit;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .checkout-summary {
+            background: white;
+            border: 3px solid var(--primary-color);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-lg);
+            position: sticky;
+            top: 120px;
+        }
+
+        .checkout-item {
+            display: flex;
+            justify-content: space-between;
+            padding: var(--spacing-sm) 0;
+            font-size: var(--font-base);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .delivery-time-options {
+            display: grid;
+            gap: var(--spacing-sm);
+        }
+
+        .delivery-time-option {
+            padding: var(--spacing-md);
+            border: 2px solid var(--border);
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: var(--font-base);
+        }
+
+        .delivery-time-option:hover {
+            border-color: var(--primary-color);
+            background: var(--surface);
+        }
+
+        .delivery-time-option input[type="radio"] {
+            width: auto;
+            margin-right: var(--spacing-sm);
+        }
+
+        @media (max-width: 968px) {
+            .checkout-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">🛒</span>
+                <span>Whole Foods Easy Order</span>
+            </a>
+            <nav class="nav">
+                <a href="cart.html" class="nav-btn">
+                    ← Back to Cart
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        <h1 class="section-title">Checkout</h1>
+
+        <div class="checkout-container">
+            <!-- Checkout Form -->
+            <div class="checkout-form">
+                <!-- Customer Information -->
+                <div class="form-section">
+                    <h3>📋 Customer Information</h3>
+                    <div class="form-group">
+                        <label for="customer-name">Full Name</label>
+                        <input type="text" id="customer-name" required readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="customer-email">Email</label>
+                        <input type="email" id="customer-email" required readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="customer-phone">Phone Number</label>
+                        <input type="tel" id="customer-phone" required readonly>
+                    </div>
+                </div>
+
+                <!-- Delivery Address -->
+                <div class="form-section">
+                    <h3>📍 Delivery Address</h3>
+                    <div class="form-group">
+                        <label for="delivery-address">Street Address</label>
+                        <input type="text" id="delivery-address" required readonly>
+                    </div>
+                    <div style="display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 16px;">
+                        <div class="form-group">
+                            <label for="delivery-city">City</label>
+                            <input type="text" id="delivery-city" required readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="delivery-state">State</label>
+                            <input type="text" id="delivery-state" required readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="delivery-zip">ZIP Code</label>
+                            <input type="text" id="delivery-zip" required readonly>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Delivery Time -->
+                <div class="form-section">
+                    <h3>🕐 Select Delivery Time</h3>
+                    <div class="delivery-time-options">
+                        <label class="delivery-time-option">
+                            <input type="radio" name="delivery-time" value="today-evening" id="delivery-time">
+                            <strong>Today Evening</strong> (6:00 PM - 9:00 PM)
+                        </label>
+                        <label class="delivery-time-option">
+                            <input type="radio" name="delivery-time" value="tomorrow-morning">
+                            <strong>Tomorrow Morning</strong> (8:00 AM - 11:00 AM)
+                        </label>
+                        <label class="delivery-time-option">
+                            <input type="radio" name="delivery-time" value="tomorrow-afternoon">
+                            <strong>Tomorrow Afternoon</strong> (12:00 PM - 3:00 PM)
+                        </label>
+                        <label class="delivery-time-option">
+                            <input type="radio" name="delivery-time" value="tomorrow-evening">
+                            <strong>Tomorrow Evening</strong> (6:00 PM - 9:00 PM)
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Special Instructions -->
+                <div class="form-section">
+                    <h3>📝 Special Instructions (Optional)</h3>
+                    <div class="form-group">
+                        <label for="special-instructions">Delivery notes, substitution preferences, etc.</label>
+                        <textarea id="special-instructions" placeholder="Example: Leave at front desk, call when arriving, no substitutions for organic items..."></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Order Summary -->
+            <div class="checkout-summary">
+                <h2 style="font-size: var(--font-xlarge); margin-bottom: var(--spacing-lg);">Order Summary</h2>
+                
+                <div id="checkout-items-summary" style="margin-bottom: var(--spacing-lg);">
+                    <!-- Items will be loaded here -->
+                </div>
+
+                <div class="summary-row">
+                    <span>Subtotal:</span>
+                    <span id="checkout-subtotal">$0.00</span>
+                </div>
+                
+                <div class="summary-row">
+                    <span>Tax (8%):</span>
+                    <span id="checkout-tax">$0.00</span>
+                </div>
+                
+                <div class="summary-row">
+                    <span>Delivery Fee:</span>
+                    <span id="checkout-delivery">$9.95</span>
+                </div>
+                
+                <div class="summary-row">
+                    <span>Total:</span>
+                    <span id="checkout-total">$0.00</span>
+                </div>
+
+                <p style="font-size: 16px; color: #666; margin: 16px 0; text-align: center;">
+                    Free delivery on orders over $35
+                </p>
+
+                <button onclick="app.placeOrder()" class="btn btn-primary btn-large" style="width: 100%; margin-top: 24px;">
+                    🎉 Place Order
+                </button>
+
+                <p style="font-size: 16px; color: #999; margin-top: 16px; text-align: center;">
+                    Delivery from Whole Foods Philly Center City
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="js/wholefoodsAPI.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/preferences.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
